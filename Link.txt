@@ -1,0 +1,3 @@
+https://phoenixnap.com/kb/install-hive-on-ubuntu
+
+https://blog.devgenius.io/setting-up-hadoop-multi-node-cluster-on-ubuntu-multiple-devices-637f539ce73a
