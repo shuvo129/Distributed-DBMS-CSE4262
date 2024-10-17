@@ -1,0 +1,6 @@
+1 apple orange mango
+2 apple plum grapes
+3 pineapple raspberry banana
+4 banana orange apple
+5 plum raspberry pomgranate
+6 grapes grapes apple mango

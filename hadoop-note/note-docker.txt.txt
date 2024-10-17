@@ -1,0 +1,32 @@
+Steps:
+done 1. Run docker 
+done 2. Hadoop run with docker, and create a input directory.
+done 3. write java program.. [local]
+done 4. copy the java program to hadoop docker instance
+done 5. copy the text file to hadoop docker instance
+done 6. Put the text file into hadoop input folder. 
+done 7. Compile java progrm with hadoop. (name.jar)
+done 8. Execute the jar file with hadoop.
+done 9. Show the output... 
+
+_____________________
+Open the docker-hadoop directory [hadoop instance folder...].....
+$ docker-compose up -d # run docker hadoop in docker '-d for backgroung'
+$ docker ps # show the docker containter. 
+$ docker exec -it namenode bash # Enter the hadoop instance
+$ hdfs dfs -mkdir -p /root/folder111 # create a input directory named folder111
+
+Go to wc folder. and open cmd.....
+$ docker cp WordCount.java namenode:/tmp # copy the WordCount.java program to hadoop's namenode instance
+$ docker cp data111.txt namenode:/tmp # copy the data11.txt into hadoops namenode instance
+
+In the hadoop instance....
+$ hdfs dfs -put /tmp/data111.txt /root/folder111 # copy the data111.txt to hadoop input folder named folder111
+$ cd /tmp # Go to tmp folder of hadoop instance
+$ javac -classpath $(hadoop classpath) -d . WordCount.java # compile java with hadoop class path
+$ jar cf wordcount111.jar WordCount*.class # create a jarfile named wordcount111.jar you can assign any name here. 
+$ hadoop jar wordcount111.jar WordCount /root/folder111 /root/output # run the jar file to use mapreduce program to calculate wordcount.. 
+$ hdfs dfs -cat /root/output/* # Show the output...
+
+
+
